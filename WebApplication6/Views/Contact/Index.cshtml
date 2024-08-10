@@ -1,0 +1,134 @@
+﻿<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .col-25 {
+        float: left;
+        width: 25%;
+        margin-top: 6px;
+    }
+
+    .col-75 {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+
+</style>
+
+<div style="text-align:center;">
+    <h2>Customer Registration Form </h2>
+    <p>Please fill the following application to get registered with US!!</p>
+    <img src="~/RegImage/img.png" style="vertical-align: central;width:20%;height:20%;" />"
+</div>
+<div class="container">
+    <form action="/action_page.php">
+        <div class="row">
+            <div class="col-25">
+                <label for="fname">First Name</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="fname" name="firstname" placeholder="Your name..">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="tel">Telephone </label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="tel" name="tel" placeholder="Your Telephone number">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="tel">Address </label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="address" name="address" placeholder="address">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="subject">Gender</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="gender" name="gender" placeholder="Gender">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="subject">DOB</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="DOB" name="DOB" placeholder="DOB">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-25">
+                <label for="subject">Age</label>
+            </div>
+            <div class="col-75">
+                <input type="text" id="age" name="age" placeholder="Age">
+            </div>
+        </div>
+        <div class="row" style="align-self:center;">
+            <input type="submit" value="Submit">
+        </div>
+        <input type="button" value="Back" class="registerbtn" onclick="return redir();">
+    </form>
+</div>
+<script>
+
+        function redir() {
+
+            window.location = "/Home/index";
+
+        }
+
+
+
+</script>

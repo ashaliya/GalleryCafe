@@ -1,0 +1,214 @@
+﻿@{
+    ViewBag.Title = "Menu";
+}
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: vertical;
+    }
+
+    label {
+        padding: 12px 12px 12px 0;
+        display: inline-block;
+    }
+
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        float: right;
+    }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+    .container {
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        padding: 20px;
+    }
+
+    .col-25 {
+        float: left;
+        width: 25%;
+        margin-top: 6px;
+    }
+
+    .col-75 {
+        float: left;
+        width: 75%;
+        margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+
+</style>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Food Menu</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .menu-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .menu-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .menu-item h3 {
+            margin-top: 0;
+        }
+        .price {
+            font-weight: bold;
+        }
+        .search-bar {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- Back Button -->
+        <input type="button" value="Back" class="btn btn-primary" onclick="return redir();">
+
+        <!-- Search Bar -->
+        <div class="search-bar mb-4">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search for food items...">
+        </div>
+
+        <h1 class="mb-4">Our Menu</h1>
+
+        <!-- Sri Lankan Section -->
+        <h2>Sri Lankan</h2>
+
+
+        <div class="menu-item" data-name="Hoppers">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/img/Hoppers.png" alt="Hoppers">
+                </div>
+                <div class="col-md-8">
+                    <h3>Hoppers</h3>
+                    <p>Mushrooms stuffed with cheese and herbs, baked to perfection.</p>
+                    <p class="price">120.00 LKR</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chineese Section -->
+        <h2>Chineese </h2>
+        <div class="menu-item" data-name="Grilled Salmon">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/img/Noodles.png" alt="Noodles">
+                </div>
+                <div class="col-md-8">
+                    <h3>Chicken Noodles</h3>
+                    <p>Perfectly grilled salmon served with a side of vegetables.</p>
+                    <p class="price">1600.00 LKR</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item" data-name="Seafood Chopsuey Rice">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/img/Rice.png" alt="Seafood Chopsuey Rice">
+                </div>
+                <div class="col-md-8">
+                    <h3>Seafood Chopsuey Rice</h3>
+                    <p>Pasta tossed in a creamy carbonara sauce with pancetta and parmesan.</p>
+                    <p class="price">$14.49</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Italian Section -->
+        <h2>Italian</h2>
+        <div class="menu-item" data-name="Pizza">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/img/pizza.png" alt="Pizza">
+                </div>
+                <div class="col-md-8">
+                    <h3>Pizzae</h3>
+                    <p>Warm chocolate cake with a gooey center, served with vanilla ice cream.</p>
+                    <p class="price">$7.99</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="menu-item" data-name="Cheese Pasta">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="~/img/pasta.png" alt="Cheese pasta">
+                </div>
+                <div class="col-md-8">
+                    <h3>Cheese Pasta</h3>
+                    <p>Classic cheesecake with a graham cracker crust and a rich, creamy filling.</p>
+                    <p class="price">$6.99</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional for form validation and interaction) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript for Search Functionality -->
+    <script>
+        document.getElementById('searchInput').addEventListener('input', function() {
+            let filter = this.value.toLowerCase();
+            let menuItems = document.querySelectorAll('.menu-item');
+            
+            menuItems.forEach(function(item) {
+                let name = item.getAttribute('data-name').toLowerCase();
+                if (name.includes(filter)) {
+                    item.style.display = '';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+<script>
+
+        function redir() {
+
+            window.location = "/Home/index";
+
+        }
+
+</script>
